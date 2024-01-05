@@ -1,11 +1,10 @@
 import React from "react";
+import Header from "./components/Header/Header";
 
 function App() {
   return ( 
-    <div>
-         <h1 className="font-bold underline">
-      Hello world!!
-    </h1>
+    <div className="font-bodyFont">
+         <Header/>
     </div>
   )
 }
