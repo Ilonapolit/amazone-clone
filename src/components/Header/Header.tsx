@@ -21,7 +21,9 @@ const Header = () => {
         <p className='text-sm text-lightText font-light flex flex-col'>Deliver to
         <span className='text-sm font-bold -mt-1
          text-whiteText'>Tbilisi</span></p>
-     
+
+     {/* Search.................... */}
+
     </div>
     <div className='h-10 rounded-md flex flex-grow relative'>
 
@@ -32,7 +34,6 @@ const Header = () => {
     </span>
 
     {
-
        showAll  && (
         <div>
             <ul className='absolute w-56 h-80 top-10 left-0 overflow-y-scroll
@@ -43,8 +44,7 @@ const Header = () => {
                   allItems.map((item)=>(
                      <li key={item.id}>{item.title}</li>
                   ))
-               }
-              
+               }   
             </ul>
         </div>
        )
@@ -56,8 +56,19 @@ const Header = () => {
         <SearchIcon/>
      </span>
 </div>
+
+
+{/* Sign in ....................................... */}
+
+<div className='flex flex-col items-start justify-center headerHover'>
+   <p>Hello, sign in</p>
+   <p>Accounts & Lists <span><ArrowDropDownIcon/></span></p>
+</div>
     </div>
    
+
+
+
 
 
     </>
