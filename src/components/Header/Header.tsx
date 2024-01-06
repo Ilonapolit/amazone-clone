@@ -5,6 +5,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import SearchIcon from '@mui/icons-material/Search';
 import { allItems } from '../../constants/index.ts';
+import HeaderBottom from '../HeaderBottom.tsx';
 
 const Header = () => {
     const [showAll,setShowALL]=useState(false)
@@ -12,6 +13,7 @@ const Header = () => {
 
   return (
     <>
+    
     <div className='w-full bg-black text-white px-4 py-3 flex items-center gap-4'>
    <div className='headerHover'>
     <img className='w-24 mt-2' src={logo} alt="logo"/>
@@ -64,12 +66,29 @@ const Header = () => {
    <p>Hello, sign in</p>
    <p>Accounts & Lists <span><ArrowDropDownIcon/></span></p>
 </div>
+ {/* Orders...........................................  */}
+<div className='flex flex-col items-start justify-center headerHover'>
+   <p>Returns</p>
+   <p>& Orders</p>
+</div>
+
+
+{/* Cart................................................. */}
+<div className='flex items-start justify-center headerHover relative'>
+   <ShoppingCartCheckoutIcon/>
+   <p className='text-xs font-semibold mt-3 text-whiteText'>
+      Cart <span className='absolute text-xs -top-1 left-6 font-semibold
+    p-1 h-4 bg-[#f3a847] text-black rounded-full
+    flex justify-center items-center '>0</span></p>
+</div>
+
     </div>
-   
 
-
-
-
+  
+    <div>
+     
+      <HeaderBottom/>
+    </div>
 
     </>
    
@@ -77,3 +96,5 @@ const Header = () => {
 }
 
 export default Header
+
+
