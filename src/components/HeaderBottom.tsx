@@ -1,16 +1,31 @@
-
-
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import SideNavContent from './Header/SideNavContent'; // Replace with the correct import
 
 interface HeaderBottomProps {
   title?: string;
 }
 
-const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
-  const [sidebar, setSidebar] = useState(false);
 
+interface SideNavContentProps {
+  title: string;
+  one: string;
+  two: string;
+  three: string;
+}
+
+const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
+  
+
+  const [sidebar, setSidebar] = useState(false)
+// useEffect(()=>{
+//   document.body.addEventListener("clicl",(e)=> {
+//     if(e.target.contains(ref.current)){
+//       setSidebar(false)
+//     }
+//   })
+// })
   const openSidebar = () => {
     setSidebar(true);
   };
@@ -36,11 +51,36 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
           <div className='w-[350px] h-full bg-white border border-black'>
             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
               <h3>Hello, Sign In</h3>
-              <ul>
-                <li className='flex items-center justify-between cursor-pointer'>Amazon Music</li>
-              </ul>
             </div>
+
+            {/* Usage of SideNavContent */}
+            <SideNavContent
+              title="Digital Content"
+              one="Amazon Music"
+              two="E-books"
+              three="Amazon Appstore"
+            />
+    <SideNavContent
+              title="Shop by Department"
+              one="Electronics"
+              two="Computers"
+              three="Smart Home"
+            />
+                <SideNavContent
+              title="Features"
+              one="Gift Crads"
+              two="Amazon Lives"
+              three="Amazon Appstore"
+            />
+                <SideNavContent
+              title="Help & Settings"
+              one="Your Account"
+              two="Customer Service"
+              three="Contact Us"
+            />
+          
           </div>
+
           <span
             onClick={closeSidebar}
             className='cursor-pointer absolute top-0 left-[360px] w-10 h-10
@@ -55,3 +95,4 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
 };
 
 export default HeaderBottom;
+
