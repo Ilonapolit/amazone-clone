@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import { banner1, banner2, banner3 } from '../Header/assets/index';
 
 const Banner = () => {
-  const [dotActive, setDotActive] = useState(0);
   const settings = {
     dots: true,
     infinite: true,
@@ -11,7 +10,6 @@ const Banner = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
-
     appendDots: (dots: any) => (
       <div
         style={{
@@ -55,8 +53,8 @@ const Banner = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="w-full h-full relative">
+    <div className="w-full relative z-0">
+      <div className="w-full h-full relative z-0">
         <Slider {...settings}>
           <div>
             <img src={banner1} alt="banner1" />
@@ -74,4 +72,3 @@ const Banner = () => {
 };
 
 export default Banner;
-

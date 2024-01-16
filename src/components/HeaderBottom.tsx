@@ -7,25 +7,9 @@ interface HeaderBottomProps {
   title?: string;
 }
 
-
-interface SideNavContentProps {
-  title: string;
-  one: string;
-  two: string;
-  three: string;
-}
-
 const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
-  
+  const [sidebar, setSidebar] = useState(false);
 
-  const [sidebar, setSidebar] = useState(false)
-// useEffect(()=>{
-//   document.body.addEventListener("clicl",(e)=> {
-//     if(e.target.contains(ref.current)){
-//       setSidebar(false)
-//     }
-//   })
-// })
   const openSidebar = () => {
     setSidebar(true);
   };
@@ -35,7 +19,7 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
   };
 
   return (
-    <div className='w-full px-4 h-[36px] bg-amazon_light text-whiteText flex items-center'>
+    <div className='w-full px-4 h-[36px] bg-amazon_light text-whiteText flex items-center relative'>
       <ul className='flex items-center gap-2 text-sm tracking-wide'>
         <li onClick={openSidebar} className='headerHover flex items-center gap-1'>
           <MenuIcon /> All
@@ -47,7 +31,7 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
 
       {/* Sidebar */}
       {sidebar && (
-        <div className='w-full h-screen text-black fixed top-0 left-0 bg-amazon_light bg-opacity-50'>
+        <div className='w-full h-screen text-black fixed top-0 left-0 bg-amazon_light bg-opacity-50 z-50'>
           <div className='w-[350px] h-full bg-white border border-black'>
             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
               <h3>Hello, Sign In</h3>
@@ -60,7 +44,7 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
               two="E-books"
               three="Amazon Appstore"
             />
-    <SideNavContent
+           <SideNavContent
               title="Shop by Department"
               one="Electronics"
               two="Computers"
@@ -78,7 +62,6 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
               two="Customer Service"
               three="Contact Us"
             />
-          
           </div>
 
           <span
@@ -95,4 +78,3 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
 };
 
 export default HeaderBottom;
-
