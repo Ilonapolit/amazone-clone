@@ -1,13 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&family=Roboto:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&family=Roboto:wght@400;900&display=swap');
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-
 @layer components {
- .headerHover  {
-    @apply px-2 h-[80%] flex items-center border border-transparent
-    hover:border-white cursor-pointer duration-100
+  .headerHover {
+    @apply px-2 h-[80%] flex items-center border border-transparent cursor-pointer duration-100;
+  }
+
+  .footerLink {
+    @apply text-sm font-titleFont tracking-wide cursor-pointer duration-150;
+  }
+
+  .footerLink:hover {
+    @apply text-gray-100 underline;
   }
 }
+

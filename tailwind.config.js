@@ -17,21 +17,21 @@ export default {
         xl: "1280px",
       },
       fontFamily: {
-        titleFont: "Roboto",
-        bodyFont: "Poppins",
+        bodyFont: ['Roboto', 'sans-serif'],
+        titleFont: ['Popins', 'sans-serif'],
       },
       colors: {
         amazon_light: "#131921",
-        amazon_light: "#232F3E",
-        amazon_yellow: "febd69",
+        amazon_dark: "#232F3E",
+        amazon_yellow: "#febd69", 
         whiteText: "#ffffff",
         lightText: "#ccc",
         quantitty_box: "#131A22",
         footerBottom: "#131A22",
       },
-      boxShadow:{
-        testShadow:"0px 0px 32px 1px rgba(199,199,1)",
-        amazonInput:"0 0 3px 2px rgb(228 121 17/50%)",
+      boxShadow: {
+        testShadow: "0px 0px 32px 1px rgba(199, 199, 1)",
+        amazonInput: "0 0 3px 2px rgb(228 121 17/50%)",
       }
     },
   },
