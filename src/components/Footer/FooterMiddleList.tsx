@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
 
-const FooterMiddleList = () => {
-  return (
-    <>
-    <div>
-           <h3 className='font-ttileFont
-           text-white text-base font-semibold mb-3'>Get to Know Us </h3> 
-           <ul className='flex flex-col gap-2 font-bodyFont'>
-           <li className='footerLink'>Career</li>
-           <li className='footerLink'>Career</li>
-           <li className='footerLink'>Career</li>
-           </ul>
-           </div>
-
-
-</>
-  )
+interface FooterMiddleListProps {
+  title: string;
+  listItem: { id: string; listData: string[] }[];
 }
 
-export default FooterMiddleList
+const FooterMiddleList: React.FC<FooterMiddleListProps> = ({ title, listItem }) => {
+  return (
+    <>
+      <div>
+        <h3 className='font-titleFont text-white text-base font-semibold mb-3'>{title}</h3>
+        <ul className='flex flex-col gap-2 font-bodyFont'>
+          {listItem.map((item) =>
+           item.listData.map((data,i) => <li key={i} className='footerLink'>{data}</li>))}
+        </ul>
+      </div>
+    </>
+  );
+}
+
+export default FooterMiddleList;

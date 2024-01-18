@@ -1,6 +1,7 @@
 import React from 'react'
 import FooterMiddleList from './FooterMiddleList'
 import { logo } from '../Header/assets'
+import { middleList } from '../../constants'
 
 
 const FooterMiddle = () => {
@@ -9,10 +10,14 @@ const FooterMiddle = () => {
       <div className='w-full border-b-[1px] border-gray-500 py-10'>
         <div className='max-w-5xl mx-auto text-gray-300'>
         <div className='w-full grid grid-cols-4 place-items-center items-start'>
-         <FooterMiddleList/>
-           <FooterMiddleList/>
-           <FooterMiddleList/>
-           <FooterMiddleList/>
+      {
+        middleList.map((item)=> (
+         <FooterMiddleList 
+         key={item.id}
+         title={item.title}
+         listItem={item.listItem}/> 
+        ))
+      }
            </div>
          
         </div>
@@ -26,7 +31,7 @@ const FooterMiddle = () => {
   <p className='flex gap-1 items-center justify-center border border-gray-500 hover:border-amazon_yellow cursor-pointer duration-200 px-2 py-1'>English</p>
 </div> 
 <div>
-  {/* <img src={bdFlag} alt=""/> */}
+  {/* <img src={Flag} alt=""/> */}
 </div>
         </div>
       </div>
