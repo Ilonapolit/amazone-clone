@@ -12,7 +12,8 @@ const Header = () => {
   const [showAll, setShowALL] = useState(false);
 
   return (
-    <>
+    <div className='w-full sticky top-0 z-50'>
+
       <div className='w-full bg-black text-white px-4 py-3 flex items-center gap-4'>
         <div className='headerHover'>
           <img className='w-24 mt-2' src={logo} alt='logo' />
@@ -86,7 +87,7 @@ const Header = () => {
       <div>
         <HeaderBottom />
       </div>
-    </>
+    </div>
   );
 };
 

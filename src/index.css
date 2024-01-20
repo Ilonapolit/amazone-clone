@@ -17,10 +17,3 @@
     @apply text-gray-100 underline;
   }
 }
-/* .footerBottomTitle {
-  @apply w-24 font-semibold text-[12px] group-hover:underLine
-  text-[#DDD] Leading-3 mb-[2px];
-}
-.footerBottomText {
-  @apply w-24 tracking-tight  text-[12px] text-[#999] group-hover: underLine leading-3
-} */
