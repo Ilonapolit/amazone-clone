@@ -6,7 +6,8 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import SearchIcon from '@mui/icons-material/Search';
 import { allItems } from '../../constants/index.ts';
 import HeaderBottom from '../HeaderBottom.tsx';
-import DarkMode from './DarkMode.tsx';
+
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [showAll, setShowALL] = useState(false);
@@ -57,19 +58,19 @@ const Header = () => {
         </div>
 
         {/* Sign in ....................................... */}
-
-        <div className='flex flex-col items-start justify-center headerHover'>
-          <p>Hello, sign in</p>
-          <p>
-            Accounts & Lists <span><ArrowDropDownIcon /></span>
-          </p>
+<Link to="/signin" >
+        <div className='p-3 flex justify-between'>
+          
+          <button>Login</button>
+         <button>Sign Up</button>
+        
         </div>
         {/* Orders...........................................  */}
-        <div className='flex flex-col items-start justify-center headerHover'>
+        {/* <div className='flex flex-col items-start justify-center headerHover'>
           <p>Returns</p>
           <p>& Orders</p>
-        </div>
-
+        </div> */}
+</Link>
         {/* Cart................................................. */}
         <div className='flex items-start justify-center headerHover relative'>
           <ShoppingCartCheckoutIcon />
@@ -81,7 +82,7 @@ const Header = () => {
           </p>
         </div>
 
-        <DarkMode />
+    
       </div>
 
       <div>

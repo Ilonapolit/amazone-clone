@@ -4,6 +4,12 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+* {
+  margin:0;
+  padding:0;
+ box-sizing: border-box
+}
+
 @layer components {
   .headerHover {
     @apply px-2 h-[80%] flex items-center border border-transparent cursor-pointer duration-100;
