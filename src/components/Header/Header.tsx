@@ -6,11 +6,15 @@ import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import SearchIcon from '@mui/icons-material/Search';
 import { allItems } from '../../constants/index.ts';
 import HeaderBottom from '../HeaderBottom.tsx';
+import {Button,Space} from "antd"
+import { SignInModal } from '../../modules/SignInModal/SignInModal.tsx';
+import { SignUpModal } from '../../modules/SignUpModal/SignUpModal.tsx';
 
-import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [showAll, setShowALL] = useState(false);
+  const [showSignUp,setShowSignUp]= useState<boolean>(false);
+  const [showSignIn,setShowSignIn]= useState<boolean>(false)
 
   return (
     <div className='w-full sticky top-0 z-50'>
@@ -58,19 +62,21 @@ const Header = () => {
         </div>
 
         {/* Sign in ....................................... */}
-<Link to="/signin" >
+
         <div className='p-3 flex justify-between'>
-          
-          <button>Login</button>
-         <button>Sign Up</button>
-        
+          <Space>
+          <Button type='primary' onClick={()=>setShowSignIn(true)}>Login</Button>
+         <Button type='primary'  onClick={()=>setShowSignUp(true)}>Sign Up</Button>
+         </Space>
+        {showSignIn && <SignInModal onCancel={()=> setShowSignIn(false)}/>}
+        {showSignUp && <SignUpModal onCancel={()=> setShowSignUp(false)}/>}
         </div>
         {/* Orders...........................................  */}
         {/* <div className='flex flex-col items-start justify-center headerHover'>
           <p>Returns</p>
           <p>& Orders</p>
         </div> */}
-</Link>
+
         {/* Cart................................................. */}
         <div className='flex items-start justify-center headerHover relative'>
           <ShoppingCartCheckoutIcon />
