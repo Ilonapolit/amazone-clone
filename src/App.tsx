@@ -1,4 +1,5 @@
 import React from "react";
+// import { ThemeContext } from "styled-components";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -13,14 +14,14 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
 
 
-
-
 const Layout =()=>{
   return (
     <div>
       <Header />
       <Outlet />
       <Footer />
+      <Banner/>
+      <Home/>
     </div>
   )
 }
@@ -43,3 +44,6 @@ function App() {
 
 
 export default App
+
+
+

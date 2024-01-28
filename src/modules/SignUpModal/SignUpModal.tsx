@@ -1,10 +1,12 @@
 import { Modal, Form, Input, Button } from "antd";
 import { publicAxios } from "../../utils/publicAxios";
+import { useSignUpModal } from "./hooks/useSignUpModal";
+
 type SignUpModalProps = {
   onCancel: () => void;
 };
 
-type SignUpFormValue = {
+export type SignUpFormValue = {
   first_name: string;
   last_name: string;
   phone_number: string;
@@ -15,8 +17,9 @@ type SignUpFormValue = {
 
 export function SignUpModal({ onCancel }: SignUpModalProps) {
   const [form] = Form.useForm();
+  const {SignUpUser} = useSignUpModal()
 
-  function onFinish(values: SignUpFormValue) {
+  async function onFinish(values: SignUpFormValue) {
     if (values.password !== values["repeat-password"]) {
      form.setFields([
       {
@@ -26,6 +29,7 @@ export function SignUpModal({ onCancel }: SignUpModalProps) {
      ]);
      return;
     }
+    await SignUpUser(values)
   }
 
   return (
