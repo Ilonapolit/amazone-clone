@@ -11,7 +11,7 @@ import Header from "./components/Header/Header";
 import Banner from "./components/Home/Banner";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-import { productsData } from "./api/api";
+
 
 
 
@@ -29,7 +29,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
-        <Route index element={<Home />}  loader={productsData}></Route>
+
      
       </Route>
     )
