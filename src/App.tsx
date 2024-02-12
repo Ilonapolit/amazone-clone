@@ -1,5 +1,5 @@
 import React from "react";
-// import { ThemeContext } from "styled-components";
+import { ThemeContext } from "styled-components";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -11,17 +11,18 @@ import {
 import Header from "./components/Header/Header";
 import Banner from "./components/Home/Banner";
 import Footer from "./components/Footer/Footer";
-import Home from "./components/Home/Home";
+
 
 
 const Layout =()=>{
   return (
     <div>
       <Header />
+    <Banner/>
       <Outlet />
       <Footer />
-      <Banner/>
-      <Home/>
+     
+      
     </div>
   )
 }
