@@ -1,10 +1,12 @@
 import { Modal, Form, Input, Button } from "antd";
 import { publicAxios } from "../../utils/publicAxios";
 import { useSignUpModal } from "./hooks/useSignUpModal";
+import { useState } from "react";
 
 type SignUpModalProps = {
   onCancel: () => void;
 };
+
 
 export type SignUpFormValue = {
   first_name: string;
@@ -20,6 +22,7 @@ export function SignUpModal({ onCancel }: SignUpModalProps) {
   const {SignUpUser} = useSignUpModal()
 
   async function onFinish(values: SignUpFormValue) {
+    console.log('eshveba')
     if (values.password !== values["repeat-password"]) {
      form.setFields([
       {
@@ -32,12 +35,13 @@ export function SignUpModal({ onCancel }: SignUpModalProps) {
     await SignUpUser(values)
   }
 
+
   return (
     <Modal
       title="რეგისტრაცია"
       centered={true}
       onCancel={onCancel}
-      visible={true} // Use `visible` instead of `open`
+      visible={true} 
       footer={
         <Button form="signup" type="primary" htmlType="submit">
           რეგისტრაცია
@@ -51,12 +55,12 @@ export function SignUpModal({ onCancel }: SignUpModalProps) {
         onFinish={onFinish}
         form={form}
       >
-        <Form.Item
+        <Form.Item 
           label="Name"
           name="first_name"
           rules={[{ required: true, message: 'Please input your username!' }]}
         >
-          <Input />
+          <Input  />
         </Form.Item>
         <Form.Item
           label="Last Name"
@@ -70,14 +74,14 @@ export function SignUpModal({ onCancel }: SignUpModalProps) {
           name="phone_number"
           rules={[{ required: true, message: 'Please input your phone number!' }]}
         >
-          <Input />
-        </Form.Item>
+          <Input />      
+      </Form.Item>
         <Form.Item
           label="Email"
           name="email"
           rules={[{ required: true, message: 'Please input your email!' }]}
-        >
-          <Input />
+        > 
+      <Input />
         </Form.Item>
         <Form.Item
           label="Password"

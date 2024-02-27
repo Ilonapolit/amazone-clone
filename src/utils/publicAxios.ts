@@ -1,5 +1,3 @@
+import axios from "axios";
 
-
-import axios from 'axios';
-
-export const publicAxios = axios.create({baseURL: ""})
+export const publicAxios = axios.create({ baseURL: "http://localhost:3000" });

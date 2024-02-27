@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-import SideNavContent from './Header/SideNavContent'; // Replace with the correct import
+import SideNavContent from './Header/SideNavContent'; 
+import axios from "axios";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { GetProducts } from '../utils/GetProducts';
+
+
 
 interface HeaderBottomProps {
   title?: string;
@@ -18,15 +24,41 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
     setSidebar(false);
   };
 
+  const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
+
+  async function getCategories() {
+    try {
+      const resp = await axios.get("http://localhost:3000/product-category");
+      setCategories(resp.data);
+      console.log('fhfhfhfhfh')
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  }
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+
+
+
+
   return (
     <div className='w-full px-4 h-[36px] bg-amazon_light text-whiteText flex items-center relative'>
       <ul className='flex items-center gap-2 text-sm tracking-wide'>
         <li onClick={openSidebar} className='headerHover flex items-center gap-1'>
           <MenuIcon /> All
+          <div className='flex items-between w-full'>
+      {categories.map((category:any) => (
+        <div  key={category.id} onClick={() => navigate(`/${category.name}`)}>
+          {category.name}
+        </div>
+      ))}
+    </div>
         </li>
-        <li className='headerHover'>Today's deals</li>
-        <li className='headerHover'>Customer Service</li>
-        <li className='headerHover'>Registry</li>
+    
       </ul>
 
       {/* Sidebar */}
@@ -73,6 +105,7 @@ const HeaderBottom: React.FC<HeaderBottomProps> = (props) => {
           </span>
         </div>
       )}
+      <GetProducts/>
     </div>
   );
 };
